@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- 
+  parallel="methods": Runs every test method in a separate thread.
+  parallel="classes": Runs all methods in one class in a single thread, but different classes in parallel.
+  parallel="tests": Runs different <test> tags in parallel.
+  thread-count: The maximum number of threads to be started.
+-->
+<suite name="Parallel Suite" parallel="classes" thread-count="4" verbose="2">
+    <test name="Regression Tests">
+        <classes>
+            <!-- <class name="com.selenium.TestOne"/> -->
+            <class name="com.selenium.apitest"/>
+        </classes>
+    </test>
+</suite>
