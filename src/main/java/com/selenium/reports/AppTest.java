@@ -1,4 +1,4 @@
-package com.selenium;
+package com.selenium.reports;
 
 
 import java.sql.Driver;
@@ -16,6 +16,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.*;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+
+import com.selenium.BaseTest;
+import com.selenium.DriverFactory;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

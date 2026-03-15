@@ -1,4 +1,4 @@
-package com.selenium;
+package com.selenium.reports;
 
 import com.codoid.products.fillo.Fillo;
 import com.codoid.products.fillo.Recordset;

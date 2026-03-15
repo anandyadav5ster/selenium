@@ -18,7 +18,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
     protected static ExtentReports extent;
     protected static ExtentTest test;
     protected static final Logger log = LogManager.getLogger(BaseTest.class);

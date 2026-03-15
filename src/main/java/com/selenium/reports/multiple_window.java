@@ -1,10 +1,13 @@
-package com.selenium;
+package com.selenium.reports;
 
 import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+
+import com.selenium.BaseTest;
+import com.selenium.DriverFactory;
 
 
 
