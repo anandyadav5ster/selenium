@@ -6,7 +6,10 @@
   parallel="tests": Runs different <test> tags in parallel.
   thread-count: The maximum number of threads to be started.
 -->
-<suite name="Parallel Suite" parallel="classes" thread-count="4" verbose="2">
+<suite name="Parameterized Suite" parallel="methods" thread-count="4">
+    
+    <!-- Global parameter -->
+    <parameter name="browser" value="chrome" />
     <test name="Regression Tests">
         <classes>
             <!-- <class name="com.selenium.TestOne"/> -->
