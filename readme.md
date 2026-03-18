@@ -142,3 +142,77 @@ To make mvn test -DsuiteXmlFile=testng.xml work, your pom.xml must be configured
         </suiteXmlFiles>
     </configuration>
 </plugin>
+
+======================parameterize browsers===============
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Parameterized Suite">
+    
+    <!-- This parameter is passed to the @BeforeMethod in BaseTest -->
+    <parameter name="browser" value="firefox" />
+
+    <test name="Chrome Tests">
+        <!-- You can override parameters at the <test> level too -->
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.tourist.GoogleTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox Tests">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="com.tourist.AppTest"/>
+        </classes>
+    </test>
+</suite>
+============================parallel execution=============
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- 
+  parallel="tests" enables different <test> tags to run in parallel.
+  thread-count="2" specifies that 2 threads should be used (one for each test).
+-->
+<suite name="Parameterized Suite" parallel="tests" thread-count="2">
+    
+    <!-- This parameter is passed to the @BeforeMethod in BaseTest -->
+    <parameter name="browser" value="firefox" />
+
+    <test name="Chrome Tests">
+        <!-- You can override parameters at the <test> level too -->
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.tourist.GoogleTest"/>
+        </classes>
+    </test>
+
+    <test name="Firefox Tests">
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="com.tourist.AppTest"/>
+        </classes>
+    </test>
+</suite>
+==================seaprate instance of browser==============
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- 
+  Changing parallel to "methods" ensures each individual @Test method 
+  runs in its own separate thread/instance.
+  thread-count="4" allows up to 4 tests to run simultaneously.
+-->
+<suite name="Parameterized Suite" parallel="methods" thread-count="4">
+    
+    <!-- Global parameter -->
+    <parameter name="browser" value="chrome" />
+
+    <test name="Regression Execution">
+        <classes>
+            <class name="com.tourist.GoogleTest"/>
+            <class name="com.tourist.AppTest"/>
+        </classes>
+    </test>
+</suite>
+==============================================
+
